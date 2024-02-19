@@ -1,0 +1,19 @@
+<!DOCTYPE html encodings="utf-8">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %} {% endblock %} Generuj</title>
+</head>
+<body>
+<h2>Generator losowań Lotto</h2>
+<form action="http://localhost:5000/generate" method="post">
+    <p>Ilość losowań: <input type="text" name="number_of_draws"/></p>
+    <p>Grać systemem: <input type="text" name="use_system"/></p>
+    <p>Z ilu liczb (7-12): <input type="text" name="max_for_system"/></p>
+    <p><input type="submit" value="submit"/></p>
+</form>
+<div class="content">
+    {% block content %} {% endblock %}
+</div>
+</body>
+</html>
