@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>{% block title %} Wyniki losowania {% endblock %}</h1>
+{% for draw in results %}
+<div>
+    {% for i in draw %}
+    {{ i }}
+    {% endfor%}
+</div><br/><br/>
+{% endfor %}
+<p><a href="/">Nowe parametry</a></p>
+{% endblock %}
