@@ -1,13 +1,44 @@
 {% extends 'base.html' %}
 
+{% block title %} {{result_len}} losowań {% endblock %}
+
 {% block content %}
-<h1>{% block title %} Wyniki losowania {% endblock %}</h1>
-{% for draw in results %}
-<div>
-    {% for i in draw %}
-    {{ i }}
-    {% endfor%}
-</div><br/><br/>
-{% endfor %}
-<p><a href="/">Nowe parametry</a></p>
+<h3 class="center">Wykonano losowań: {{result_len}}</h3>
+<div class="results-paginated">
+    {% for page in paginated %}
+    {% if page > 1 %}
+    <div id="page{{page}}" class="hidden">
+        {% else %}
+        <div id="page{{page}}">
+            {% endif %}
+            {% for draw in paginated[page]%}
+            <h4>Losowanie {{loop.index + ((page-1)*10)}}</h4>
+            <div class="draw">
+                <div class="numbers">
+                    {% for num in draw %}
+                    <div class="number">
+                        <p>{{ num }}</p>
+                    </div>
+                    {% endfor%}
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        {% endfor %}
+        <div class="pagination">
+            <input id="pagination-input" type="number" min="1" max="{{pages}}" value="1" onchange="pageChange(this)"/>
+            <label class="form-control-sm">z</label>
+            <label id="pages-label" class="form-control-sm">{{pages}}</label>
+        </div>
+    </div>
+    <div id="again">
+        <form id="again_form" action="http://localhost:5000/">
+            <input class="btn btn-success" type="submit" value="Generuj od nowa"></input>
+        </form>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+    <script src="{{ url_for('static', filename='js/results.js') }}"></script>
 {% endblock %}

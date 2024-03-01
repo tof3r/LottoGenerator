@@ -2,18 +2,43 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>{% block title %} {% endblock %} Generuj</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>{% block title %} Losuj {% endblock %}</title>
+
+    {% block styles %}
+    {{ bootstrap.load_css() }}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/lotto-results.css') }}">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+    {% endblock %}
 </head>
 <body>
-<h2>Generator losowań Lotto</h2>
-<form action="http://localhost:5000/generate" method="post">
-    <p>Ilość losowań: <input type="text" name="number_of_draws"/></p>
-    <p>Grać systemem: <input type="text" name="use_system"/></p>
-    <p>Z ilu liczb (7-12): <input type="text" name="max_for_system"/></p>
-    <p><input type="submit" value="submit"/></p>
-</form>
+<div class="lotto-form">
+    <h2>Generator losowań Lotto</h2>
+    <form action="http://localhost:5000/generate" method="post">
+        <div>
+            <label class="form-control-sm">Ilość losowań (1-10):</label>
+            <input class="form-control form-control-lg" type="number" id="number_of_draws" name="number_of_draws"
+                   min="1" max="10" value="1"/>
+        </div>
+        <div id="system_switch" class="form-check form-switch">
+            <label class="form-check-label">Grać systemem</label>
+            <input class="form-check-input" type="checkbox" name="use_system" onclick="handleClick(this)"/></div>
+        <div>
+            <label class="form-control-sm">Z ilu liczb (7-12):</label>
+            <input class="form-control form-control-lg" type="number" id="max_for_system" name="max_for_system"
+                   min="7" max="12" value="7" disabled>
+        </div>
+        <div id="draw_button">
+            <input class="btn btn-info" type="submit" value="Losuj"/>
+        </div>
+    </form>
+</div>
 <div class="content">
     {% block content %} {% endblock %}
 </div>
+{% block scripts %}
+{{ bootstrap.load_js() }}
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+{% endblock %}
 </body>
 </html>

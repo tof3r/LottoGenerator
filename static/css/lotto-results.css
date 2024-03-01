@@ -1,0 +1,118 @@
+.form-control:disabled {
+    background-color:grey;
+}
+body {
+    background:#cfcfcf;
+    padding-top:4rem;
+    padding-left:8rem;
+    padding-right:8rem;
+    padding-bottom:4rem;
+    text-align:center;
+}
+
+.number {
+    background-color:transparent;
+    width:80px;
+    height:80px;
+    border-radius:50px;
+    box-shadow: 0 0 8px #112211, inset 0 0 8px #112211;
+    display:inline-block;
+    margin-left:2rem;
+    margin-right:2rem;
+}
+.number p {
+    display:block;
+    text-align: center;
+    line-height: 80px;
+    font-family:sans-serif;
+    font-weight:100;
+    font-size:24px;
+    color: #112211;
+    text-shadow: 0 0 4px #112211;
+}
+
+.results {
+    width: 100%;
+    margin-top:2rem;
+}
+
+.results-paginated {
+    width: 100%;
+    margin-top:2rem;
+}
+
+.draw {
+    margin-top: 2rem;
+    margin-bottom:2rem;
+    width:100%;
+    padding-left:1rem;
+    padding-right:1rem;
+}
+
+#system_switch {
+    margin-top:1rem;
+    margin-bottom:1rem;
+}
+
+#draw_button {
+    margin-top: 1rem;
+}
+
+#again {
+    margin-top:2rem;
+    display:inline-block;
+}
+
+.numbers {
+    margin-top:1rem;
+    margin-bottom:1rem;
+}
+
+.center {
+    width:50%;
+    margin:auto;
+    text-align:center;
+}
+
+.lotto-form {
+    text-align:left;
+}
+
+h4 {
+    overflow: hidden;
+    text-align: center;
+    font-size:16px;
+}
+h4:before,
+h4:after {
+    background-color: #aaaaaa;
+    content: "";
+    display: inline-block;
+    height: 1px;
+    position: relative;
+    vertical-align: middle;
+    width: 50%;
+}
+h4:before {
+    right: 0.5em;
+    margin-left: -50%;
+}
+h4:after {
+    left: 0.5em;
+    margin-right: -50%;
+}
+
+.hidden {
+    display: none;
+}
+
+.pagination {
+    margin-top:2rem;
+    text-align:center;
+    display:block;
+}
+
+.pagination > input {
+    width:60px;
+    border-color:transparent;
+}
