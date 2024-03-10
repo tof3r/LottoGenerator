@@ -1,6 +1,5 @@
 from flask import request, render_template
-from lotto import lotto
-from app import app
+from app import app, lotto
 
 
 @app.route('/')
