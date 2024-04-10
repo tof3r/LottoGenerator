@@ -14,7 +14,7 @@
 <body>
 <div class="lotto-form">
     <h2>Generator losowań Lotto</h2>
-    <form action="http://localhost:5000/generate" method="post">
+    <form action="{{base_url}}generate" method="post">
         <div>
             <label class="form-control-sm">Ilość losowań (1-10):</label>
             <input class="form-control form-control-lg" type="number" id="number_of_draws" name="number_of_draws"
