@@ -1,7 +1,6 @@
 import random
 import itertools
 
-
 draws_to_display = []
 
 
@@ -20,7 +19,7 @@ def generate_draw(num_of_draws: int, use_system: bool, max_for_system: int):
 
 def paginated_list(results: list, page_size: int):
     paginated = {}
-    pages = len(results)//page_size
+    pages = len(results) // page_size
     rest = len(results) % page_size
     if 0 < rest < page_size:
         pages += 1
@@ -31,4 +30,3 @@ def paginated_list(results: list, page_size: int):
         start_index += page_size
         end_index += page_size
     return paginated
-
