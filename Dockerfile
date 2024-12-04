@@ -1,6 +1,10 @@
-FROM tiangolo/uwsgi-nginx-flask:python3.11
-WORKDIR /lotto
-ENV STATIC_URL /app/static
-ENV STATIC_PATH ./app/static
-COPY ./requirements.txt .
-RUN pip install -r ./requirements.txt
+FROM python:3.12.7-slim
+COPY requirements.txt /
+RUN pip3 install --upgrade pip
+RUN pip3 install -r /requirements.txt
+
+COPY . /app
+WORKDIR /app
+
+EXPOSE 8080
+CMD ["gunicorn", "--config", "gunicorn_config.py", "lottogen:app"]
